@@ -1,0 +1,22 @@
+{
+  "name": "security",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "./node_modules/nodemon/bin/nodemon.js -w /app/src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqp-connection-manager": "^2.3.0",
+    "amqplib": "^0.5.3",
+    "debug": "^4.1.1",
+    "iproute": "^1.0.2",
+    "node-netflowv9": "^0.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
