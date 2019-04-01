@@ -5,5 +5,7 @@ RUN npm install
 
 FROM node:10-alpine
 COPY --from=builder /app /app
+COPY ./start.sh /start.sh
+RUN chmod a+x /start.sh
 WORKDIR /app
-CMD ["node", "/app/src/main.js"]
+CMD ["/start.sh"]

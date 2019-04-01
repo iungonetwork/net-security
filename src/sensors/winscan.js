@@ -1,3 +1,8 @@
+/*
+	Windows scan sensor
+	Aims to detect port scans aimed at Windows machines.
+*/
+
 const {Sensor, filters, windows, keys, processors} = require('./Sensor')
 
 module.exports = function() {

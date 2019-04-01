@@ -1,3 +1,9 @@
+/*
+	Portscan sensor
+	Checks for portscan patterns. triggers threat notifications if there are more than 100 flows
+	in 60 seconds for any single source on any single observer that match common port scanning flags.
+*/
+
 const {Sensor, filters, windows, keys, processors} = require('./Sensor')
 
 module.exports = function() {

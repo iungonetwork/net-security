@@ -1,3 +1,10 @@
+/*
+	UDP multisource collector
+
+	Accepts netflows on single port from multiple sources
+	Emits 'flow' events with '_observer' property set to source IP
+*/
+
 const Collector = require('node-netflowv9')
 const {EventEmitter} = require('events')
 const log = require('../log')('collector')
@@ -7,6 +14,7 @@ function create() {
 	
 	collector.nfcapd = Collector(function(packet) {
 
+		// setup most popular protocols to be decoded
 		const protocols = {
 			'1': 'ICMP',
 			'5': 'ST',
@@ -14,11 +22,15 @@ function create() {
 			'17': 'UDP' 
 		}
 
+		// set observer to source of netflow packet
 		const observer = packet.rinfo.address
 
+		// emit event for each flow in the packet
 		packet.flows.forEach(function (flow) {
 			flow._timestamp = Date.now()
 			flow._observer = observer
+
+			// decode TCP flags for conveniences
 			flow._tcp_flags = {
 				'FIN': (flow.tcp_flags & 1) != 0,
 				'SYN': (flow.tcp_flags & 2) != 0,

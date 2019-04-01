@@ -1,3 +1,9 @@
+/*
+	Spam sensor
+	Triggers threat notification if there are more than 20 outgoing mail related
+	connections in 60 seconds
+*/
+
 const {Sensor, filters, windows, keys, processors} = require('./Sensor')
 
 module.exports = function() {

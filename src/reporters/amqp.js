@@ -1,3 +1,9 @@
+/*
+	AMQP threat reporter
+
+	Pushes reported threats to AMQP queue.
+*/
+
 const amqp = require('amqp-connection-manager')
 const log = require('../log')('reporters:amqp')
 

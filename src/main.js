@@ -5,18 +5,6 @@ const log = require('./log')('main')
 const net = require('net')
 const repl = require('repl')
 
-// add route to back to signaling network
-ip_route.add({
-	to: '10.8.0.0/16',
-	via: '172.28.0.100'
-}, error => {
-	if (!error) return
-	// code 2 means route alredy created by previuos run, ignore
-	if (error.code != 2) {
-		log.error('failed to create route: %s', error.message)
-	}
-});
-
 // list enabled sensors here
 const enabledSensors = [
 	'spam', 
