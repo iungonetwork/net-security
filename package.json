@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/main.js",
     "nodemon": "node_modules/nodemon/bin/nodemon.js -w src"
   },
   "author": "",
